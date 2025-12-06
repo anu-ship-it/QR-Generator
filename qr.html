@@ -29,7 +29,25 @@
             const sizeSelect = document.getElementById('sizeSelect');
             const downloadButton = document.getElementById('downloadButton');
 
-            
+            function generatorQR() {
+                const text = textInput.value.trim();
+                if(!text) return;
+
+                const size = parseInt(sizeSelect.value);
+
+                qrCanvas.width = size;
+                qrCanvas.height = size;
+
+                new QRious({
+                    element: qrCanvas,
+                    value: text,
+                    size: size,
+                    background: '#ffffff',
+                    foreground: '#000000'
+                });
+
+                
+            }
         </script>
     </body>
 </html>
