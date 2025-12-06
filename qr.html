@@ -46,8 +46,21 @@
                     foreground: '#000000'
                 });
 
-                
+                downloadButton.style.display = 'block';
             }
+
+            textInput.addEventListener('input', () => setTimeout(generatorQR, 300));
+            sizeSelect.addEventListener('change', generatorQR);
+
+            downloadButton.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.herf = qrCanvas.toDataURL('image/png');
+                link.download = 'qrcode.png';
+                link.click();
+            });
+
+            generatorQR();
         </script>
+        
     </body>
 </html>
